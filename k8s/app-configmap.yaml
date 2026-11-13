@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-config
+data:
+  MONGODB_HOST: mongodb-service   # resolved by Kubernetes DNS
+  MONGODB_PORT: "27017"

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    # A folder on the Minikube node. /data is one of the paths Minikube keeps
+    # across `minikube stop`/`start`. It is lost on `minikube delete`.
+    path: /data/mongodb
+    type: DirectoryOrCreate
